@@ -9,6 +9,7 @@ router.get(`/`, async (req, res) => {
     filter = { category: req.query.categories.split(",") };
   }
   const productList = await Product.find(filter);
+  console.log("product list", productList);
   if (!productList) {
     res.status(500).json({
       success: false,
