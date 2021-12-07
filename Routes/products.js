@@ -157,6 +157,10 @@ router.put(
     if (mongoose.isValidObjectId(req.params.id)) {
       return res.status(400).send("Invalid Product Id");
     }
+
+    const file = req.file;
+    if (!file) return res.status(400).send("No image in the request");
+
     const files = req.files;
     let imagePath = [];
     const basePath = `${req.protocol}://${req.get("host")}/public/uploads/`;
