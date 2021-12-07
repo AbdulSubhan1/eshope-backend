@@ -14,6 +14,7 @@ app.use(bodyParser.json());
 app.use(morgan("dev"));
 app.use(authJwt());
 app.use(errorHandler);
+app.use("/public/uploads", express.static(__dirname + "/public/uploads"));
 
 // Routes
 const productRouter = require("./Routes/products");
